@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CookManager : MonoBehaviour
+public class CookManager : ProjectileEffect
 {
     Rigidbody rb;
 
@@ -52,5 +52,10 @@ public class CookManager : MonoBehaviour
         // {
         //     Destroy(gameObject);
         // }
+    }
+
+    public override void OnProjectileHit(ProjectileBehaviour projectileBehaviour)
+    {
+        Debug.Log("<color=green>Alex, please implement the effect here.</color>");
     }
 }
