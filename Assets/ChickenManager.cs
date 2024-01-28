@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -7,6 +8,17 @@ using UnityEngine.Scripting.APIUpdating;
 public class ChickenManager : MonoBehaviour
 {
 
+    // Quick and dirty events
+    public delegate void SurviveAction();
+    public static event SurviveAction OnSurvive;
+
+    public delegate void WinLevelAction();
+    public static event WinLevelAction OnWinLevel;
+
+    public delegate void LevelStartAction();
+    public static event LevelStartAction OnLevelStart;
+
+    // attrs
     [SerializeField]
     private float health = 100.0f;
 
@@ -22,7 +34,7 @@ public class ChickenManager : MonoBehaviour
     [SerializeField]
     private Vector3 aimVector;
 
-    // Recoil
+    // Recoil   
     [SerializeField]
     float bulletRecoilFactor = 0.3f;
 
@@ -33,6 +45,12 @@ public class ChickenManager : MonoBehaviour
     float rayDistanceDebugDraw = 10.0f;
 
     float chickSpeed = 2.0f;
+
+    [SerializeField]
+    float timeToSurviveInitial = 100.0f;
+
+    [SerializeField]
+    float timeToSurviveLeft = 99.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -83,13 +101,16 @@ public class ChickenManager : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         Vector3 some = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        Debug.Log(ray);
         Debug.DrawRay(transform.position, ray.direction, Color.red);
         if (Input.GetKeyDown("t"))
         {
             Shoot();
         }
-       
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            OnLevelStart();
+        }
+
         if (Input.GetKeyDown(KeyCode.A))
         {
             if (myRigidBody)
@@ -111,6 +132,12 @@ public class ChickenManager : MonoBehaviour
                 transform.rotation = Quaternion.LookRotation(transform.right * chickSpeed);
             }
         }
+
+        Debug.Log("Countdown: " + timeToSurviveLeft);
+        if (timeToSurviveLeft <= 0)
+        {
+            OnSurvive();
+        }
     }
 
     public void Shoot()
@@ -127,5 +154,39 @@ public class ChickenManager : MonoBehaviour
             myRigidBody.GetComponent<Rigidbody>().AddForce(-(aimVector * bulletForce) * bulletRecoilFactor, ForceMode.Impulse);
         }
         
+    }
+
+    private void HandleLevelStart()
+    {
+        Debug.Log("Start Level");
+        timeToSurviveLeft = timeToSurviveInitial;
+        Debug.Log("Countdown: " + timeToSurviveInitial);
+        StartCoroutine(StartCountdown());
+    }
+
+    private void HandleSurvive()
+    {
+        Debug.Log("win");
+        OnLevelStart();
+    }
+
+
+    void OnEnable()
+    {
+        OnLevelStart += HandleLevelStart;
+        OnSurvive += HandleSurvive;
+    }
+    void OnDisable()
+    {
+        OnLevelStart -= HandleLevelStart;
+        OnSurvive -= HandleSurvive;
+    }
+    public IEnumerator StartCountdown()
+    {
+        while (timeToSurviveLeft > 0)
+        {
+            yield return new WaitForSeconds(1.0f);
+            timeToSurviveLeft--;
+        }
     }
 }
