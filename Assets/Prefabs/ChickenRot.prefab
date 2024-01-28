@@ -36,7 +36,7 @@ Transform:
   - {fileID: 1420725176279879749}
   - {fileID: 398316945878691687}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6392713280703600293
 MonoBehaviour:
@@ -52,15 +52,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   egg: {fileID: 7562588622325495831, guid: 31a3ed62a65d1cd41a229058d3c0b313, type: 3}
   health: 100
-  stress: 0
-  stressToHatch: 100
-  selectedBullet: {fileID: 6074661210258623916, guid: b40b9e5257714a04b84a373c6db4fd1b, type: 3}
+  stress: 5
+  stressToHatch: 10
   gunPoint: {fileID: 5266106753981507563}
   eggPoint: {fileID: 398316945878691687}
   myRigidBody: {fileID: 2780047575323934370}
   aimVector: {x: 0, y: 0, z: 0}
-  bulletRecoilFactor: 4
-  bulletForce: 1
+  weapon: {fileID: 11400000, guid: dcea381872914804082d00e50530860d, type: 2}
+  eggForce: 5
   rayDistanceDebugDraw: 10
   timeToSurviveInitial: 10
   timeToSurviveLeft: 99
