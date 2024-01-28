@@ -4,8 +4,17 @@ using UnityEngine;
 
 public class Props : ProjectileEffect
 {
+    Rigidbody rigidbody;
+
     public override void OnProjectileHit(ProjectileBehaviour projectileBehaviour)
     {
-        Debug.Log("<color=green>Alex, please implement the effect here.</color>");
+        Vector3 direction = projectileBehaviour.transform.right * projectileBehaviour.forceOnHit;
+
+        rigidbody.AddForce(direction);
+    }
+
+    private void Awake()
+    {
+        rigidbody = gameObject.GetComponent<Rigidbody>();
     }
 }
