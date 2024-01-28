@@ -33,8 +33,9 @@ Transform:
   m_Children:
   - {fileID: 8333477011377070109}
   - {fileID: 5266106753981507563}
+  - {fileID: 1420725176279879749}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6392713280703600293
 MonoBehaviour:
@@ -51,6 +52,11 @@ MonoBehaviour:
   health: 100
   selectedBullet: {fileID: 6074661210258623916, guid: b40b9e5257714a04b84a373c6db4fd1b, type: 3}
   gunPoint: {fileID: 5266106753981507563}
+  myRigidBody: {fileID: 0}
+  aimVector: {x: 0, y: 0, z: 0}
+  bulletRecoilFactor: 0.3
+  bulletForce: 20
+  rayDistanceDebugDraw: 10
 --- !u!54 &2780047575323934370
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -99,6 +105,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.27351278, y: 0.28298643, z: 0.20584992}
   m_Center: {x: -0.0035611987, y: 0.0011755973, z: 0.0017806143}
+--- !u!1 &2684035996071728921
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1420725176279879749}
+  m_Layer: 7
+  m_Name: ForwardCamTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1420725176279879749
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2684035996071728921}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1168978497541067672}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8755491518874772031
 GameObject:
   m_ObjectHideFlags: 0

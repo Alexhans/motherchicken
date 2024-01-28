@@ -118,8 +118,9 @@ public class ChickenManager : MonoBehaviour
         Vector3 forward = transform.TransformDirection(Vector3.forward) * rayDistanceDebugDraw;
         Debug.DrawRay(transform.position, forward, Color.green);
         Debug.Log("Bang!");
-        if(selectedBullet) { 
-            GameObject bullet = Instantiate<GameObject>(selectedBullet.gameObject, gunPoint.position, gunPoint.rotation);
+        if(selectedBullet) {
+            GameObject bullet = Instantiate<GameObject>(selectedBullet.gameObject, gunPoint.position, Quaternion.FromToRotation(gunPoint.position.normalized, aimVector.normalized));
+
             bullet.GetComponent<Rigidbody>().AddForce(aimVector * bulletForce, ForceMode.Impulse);
 
             // Recoil
