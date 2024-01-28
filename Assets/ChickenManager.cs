@@ -35,9 +35,6 @@ public class ChickenManager : MonoBehaviour
     private float stressToHatch = 10.0f;
 
     [SerializeField]
-    private GameObject selectedBullet;
-
-    [SerializeField]
     private Transform gunPoint;
 
     [SerializeField]
@@ -49,12 +46,8 @@ public class ChickenManager : MonoBehaviour
     [SerializeField]
     private Vector3 aimVector;
 
-    // Recoil   
     [SerializeField]
-    float bulletRecoilFactor = 0.3f;
-
-    [SerializeField]
-    float bulletForce = 20.0f;
+    private WeaponData weapon;
 
     [SerializeField]
     float eggForce = 4.0f;
@@ -72,10 +65,7 @@ public class ChickenManager : MonoBehaviour
     void Start()
     {
         Debug.Log("Hello: " + gameObject.name);
-        if(selectedBullet == null)
-        {
-            Debug.LogError("Empty");
-        }
+        
         HandleLevelStart();
     }
 
@@ -206,13 +196,13 @@ public class ChickenManager : MonoBehaviour
         Vector3 forward = transform.TransformDirection(Vector3.forward) * rayDistanceDebugDraw;
         Debug.DrawRay(transform.position, forward, Color.green);
         Debug.Log("Bang!");
-        if(selectedBullet) {
-            GameObject bullet = Instantiate<GameObject>(selectedBullet.gameObject, gunPoint.position, Quaternion.FromToRotation(gunPoint.position.normalized, aimVector.normalized));
+        if(weapon.bullet) {
+            GameObject bullet = Instantiate<GameObject>(weapon.bullet.gameObject, gunPoint.position, Quaternion.FromToRotation(gunPoint.position.normalized, aimVector.normalized));
 
-            bullet.GetComponent<Rigidbody>().AddForce(aimVector * bulletForce, ForceMode.Impulse);
+            bullet.GetComponent<Rigidbody>().AddForce(aimVector * weapon.bulletForce, ForceMode.Impulse);
 
             // Recoil
-            myRigidBody.GetComponent<Rigidbody>().AddForce(-(aimVector * bulletForce) * bulletRecoilFactor, ForceMode.Impulse);
+            myRigidBody.GetComponent<Rigidbody>().AddForce(-(aimVector * weapon.bulletForce) * weapon.recoilFactor, ForceMode.Impulse);
         }
     }
 
