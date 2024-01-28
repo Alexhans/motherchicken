@@ -17,16 +17,31 @@ public class ChickenManager : MonoBehaviour
 
     public delegate void LevelStartAction();
     public static event LevelStartAction OnLevelStart;
-
+    
+    public delegate void HatchEggAction();
+    public static event HatchEggAction OnHatchEgg;
+    // attrs
     // attrs
     [SerializeField]
+    GameObject egg;
+
+    [SerializeField]
     private float health = 100.0f;
+
+    [SerializeField]
+    private float stress = 5.0f;
+    
+    [SerializeField]
+    private float stressToHatch = 10.0f;
 
     [SerializeField]
     private GameObject selectedBullet;
 
     [SerializeField]
     private Transform gunPoint;
+
+    [SerializeField]
+    private Transform eggPoint;
 
     [SerializeField]
     private Rigidbody myRigidBody;
@@ -41,6 +56,8 @@ public class ChickenManager : MonoBehaviour
     [SerializeField]
     float bulletForce = 20.0f;
 
+    [SerializeField]
+    float eggForce = 4.0f;
     [SerializeField]
     float rayDistanceDebugDraw = 10.0f;
 
@@ -133,13 +150,56 @@ public class ChickenManager : MonoBehaviour
             }
         }
 
-        Debug.Log("Countdown: " + timeToSurviveLeft);
+        if (Input.GetKeyDown(KeyCode.H)) {
+            HandleHatchEgg();
+        }
+
+
+        
+
         if (timeToSurviveLeft <= 0)
         {
             OnSurvive();
         }
+
+        CheckIfTooStressed();
+        Debug.Log("Countdown: " + timeToSurviveInitial + "- stress: " + stress);
     }
 
+    void BecomeStressed(float stressAmount)
+    {
+        Debug.Log(stress + " " + stressAmount);
+        stress += stressAmount;
+    }
+
+    void CheckIfTooStressed()
+    {
+        
+        if(stress >= stressToHatch)
+        {
+            OnHatchEgg();
+        }
+    }
+
+    void HandleHatchEgg()
+    {
+        //        Transform originalPositionOfChicken = gameObject.transform;
+
+        Transform originalEggPoint = eggPoint;
+
+
+        Debug.Log("egg hatch");
+        if(egg) {
+            // Push kitchen upwards due to having egg
+            myRigidBody.GetComponent<Rigidbody>().AddForce(Vector2.up * eggForce, ForceMode.Impulse);
+            // Egg
+            Instantiate<GameObject>(egg, eggPoint.position, Quaternion.identity);
+        }
+
+        stress = 0;
+
+
+    }
     public void Shoot()
     {
         Vector3 forward = transform.TransformDirection(Vector3.forward) * rayDistanceDebugDraw;
@@ -153,14 +213,18 @@ public class ChickenManager : MonoBehaviour
             // Recoil
             myRigidBody.GetComponent<Rigidbody>().AddForce(-(aimVector * bulletForce) * bulletRecoilFactor, ForceMode.Impulse);
         }
-        
+    }
+
+    void HandleTakeDamage(float damage)
+    {
+        BecomeStressed(damage * 2.0f);
     }
 
     private void HandleLevelStart()
     {
         Debug.Log("Start Level");
         timeToSurviveLeft = timeToSurviveInitial;
-        Debug.Log("Countdown: " + timeToSurviveInitial);
+        Debug.Log("Countdown: " + timeToSurviveInitial + "- stress: " + stress);
         StartCoroutine(StartCountdown());
     }
 
@@ -175,18 +239,24 @@ public class ChickenManager : MonoBehaviour
     {
         OnLevelStart += HandleLevelStart;
         OnSurvive += HandleSurvive;
+        OnHatchEgg += HandleHatchEgg;
     }
     void OnDisable()
     {
         OnLevelStart -= HandleLevelStart;
         OnSurvive -= HandleSurvive;
+        OnHatchEgg -= HandleHatchEgg;
     }
     public IEnumerator StartCountdown()
     {
+        float seconds = 1.0f;
         while (timeToSurviveLeft > 0)
         {
-            yield return new WaitForSeconds(1.0f);
-            timeToSurviveLeft--;
+
+            yield return new WaitForSeconds(seconds);
+            
+            timeToSurviveLeft -= seconds;
+            BecomeStressed(1.0f);
         }
     }
 }

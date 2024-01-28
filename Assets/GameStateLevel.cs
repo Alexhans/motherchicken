@@ -40,6 +40,5 @@ public class GameStateLevel : MonoBehaviour
         Debug.Log("You won!");
         string currentSceneName = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(currentSceneName);
-
     }
 }
