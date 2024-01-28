@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5209325397176044757}
-  - component: {fileID: 232048538735453765}
   m_Layer: 0
   m_Name: Ladle
   m_TagString: Untagged
@@ -33,18 +32,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &232048538735453765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6679750084256453165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c4882ef5f6301144b5f2eb71e087ff1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &7314237739014130380
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -108,6 +95,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6d8340083bfdf7f4a8fbceeedbdfcdfe, type: 3}
       insertIndex: -1
       addedObject: {fileID: 507817948067761805}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6d8340083bfdf7f4a8fbceeedbdfcdfe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3868871277880091858}
   m_SourcePrefab: {fileID: 100100000, guid: 6d8340083bfdf7f4a8fbceeedbdfcdfe, type: 3}
 --- !u!4 &7064983457797827879 stripped
 Transform:
@@ -146,3 +136,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!136 &3868871277880091858
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7584076794018183069}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.0007
+  m_Height: 0.003482983
+  m_Direction: 2
+  m_Center: {x: 0, y: 0.0007, z: 0.002}
