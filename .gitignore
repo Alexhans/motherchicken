@@ -38,6 +38,9 @@ Build
 *.vs
 .vsconfig
 
+# vs code
+.vscode/settings.json
+
 Logs
 
 # This .gitignore file should be placed at the root of your Unity project directory
