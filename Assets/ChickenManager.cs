@@ -76,6 +76,7 @@ public class ChickenManager : MonoBehaviour
         {
             Debug.LogError("Empty");
         }
+        HandleLevelStart();
     }
 
     float speed = 1.0f;
@@ -253,9 +254,10 @@ public class ChickenManager : MonoBehaviour
         while (timeToSurviveLeft > 0)
         {
 
-            yield return new WaitForSeconds(seconds);
+            yield return new WaitForSeconds(1.0f);
             
             timeToSurviveLeft -= seconds;
+            Debug.Log("ASD");
             BecomeStressed(1.0f);
         }
     }

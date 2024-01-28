@@ -1018,6 +1018,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChickenRot
       objectReference: {fileID: 0}
+    - target: {fileID: 6392713280703600293, guid: 08920226111032247a60b04dfb088251, type: 3}
+      propertyPath: stress
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6392713280703600293, guid: 08920226111032247a60b04dfb088251, type: 3}
+      propertyPath: eggForce
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6392713280703600293, guid: 08920226111032247a60b04dfb088251, type: 3}
+      propertyPath: stressToHatch
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
