@@ -37,10 +37,12 @@ public class CookManager : ProjectileEffect
         if (followObjectPosition.x > transform.position.x)
         {
             rb.velocity = new Vector3(speed, rb.velocity.y, rb.velocity.z);
+            rb.rotation = Quaternion.Euler(0, 90, 0);
         }
         else if (followObjectPosition.x < transform.position.x)
         {
             rb.velocity = new Vector3(-speed, rb.velocity.y, rb.velocity.z);
+            rb.rotation = Quaternion.Euler(0, 270, 0);
         }
     }
 

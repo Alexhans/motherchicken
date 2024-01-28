@@ -504,10 +504,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2947254175057469537, guid: 7a71a25ade17986468b2d9881ab9f666, type: 3}
-      propertyPath: speed
-      value: 2.5
-      objectReference: {fileID: 0}
     - target: {fileID: 3637704534814404114, guid: 7a71a25ade17986468b2d9881ab9f666, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -555,10 +551,6 @@ PrefabInstance:
     - target: {fileID: 4120909850152596648, guid: 7a71a25ade17986468b2d9881ab9f666, type: 3}
       propertyPath: m_Name
       value: NewCook Variant
-      objectReference: {fileID: 0}
-    - target: {fileID: 5226787900361969616, guid: 7a71a25ade17986468b2d9881ab9f666, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
