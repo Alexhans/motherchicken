@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2483293746595142859}
+  - component: {fileID: 3299326005999703475}
   m_Layer: 0
   m_Name: Potato
   m_TagString: Untagged
@@ -28,10 +29,22 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4576079623132153165}
+  - {fileID: 8042980315930811861}
   m_Father: {fileID: 0}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3299326005999703475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8403836511573435228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c4882ef5f6301144b5f2eb71e087ff1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7499863949341276734
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -96,7 +109,7 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 4038384512769417894}
   m_SourcePrefab: {fileID: 100100000, guid: 90703a0b3085dd743a9baa893cb51ca5, type: 3}
---- !u!1 &3803941348269252599 stripped
+--- !u!1 &7265915159199319919 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 90703a0b3085dd743a9baa893cb51ca5, type: 3}
   m_PrefabInstance: {fileID: 7499863949341276734}
@@ -107,7 +120,7 @@ Rigidbody:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3803941348269252599}
+  m_GameObject: {fileID: 7265915159199319919}
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
@@ -128,7 +141,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!4 &4576079623132153165 stripped
+--- !u!4 &8042980315930811861 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 90703a0b3085dd743a9baa893cb51ca5, type: 3}
   m_PrefabInstance: {fileID: 7499863949341276734}

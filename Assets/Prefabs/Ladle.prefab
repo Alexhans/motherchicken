@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5209325397176044757}
+  - component: {fileID: 232048538735453765}
   m_Layer: 0
   m_Name: Ladle
   m_TagString: Untagged
@@ -28,10 +29,22 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 37885626465970534}
+  - {fileID: 7064983457797827879}
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &232048538735453765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6679750084256453165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c4882ef5f6301144b5f2eb71e087ff1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7314237739014130380
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -96,12 +109,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 507817948067761805}
   m_SourcePrefab: {fileID: 100100000, guid: 6d8340083bfdf7f4a8fbceeedbdfcdfe, type: 3}
---- !u!4 &37885626465970534 stripped
+--- !u!4 &7064983457797827879 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6d8340083bfdf7f4a8fbceeedbdfcdfe, type: 3}
   m_PrefabInstance: {fileID: 7314237739014130380}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &850415526108247004 stripped
+--- !u!1 &7584076794018183069 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6d8340083bfdf7f4a8fbceeedbdfcdfe, type: 3}
   m_PrefabInstance: {fileID: 7314237739014130380}
@@ -112,7 +125,7 @@ Rigidbody:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 850415526108247004}
+  m_GameObject: {fileID: 7584076794018183069}
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
