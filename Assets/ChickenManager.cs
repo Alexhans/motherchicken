@@ -51,9 +51,11 @@ public class ChickenManager : MonoBehaviour
 
     [SerializeField]
     float eggForce = 4.0f;
+
     [SerializeField]
     float rayDistanceDebugDraw = 10.0f;
 
+    [SerializeField]
     float chickSpeed = 2.0f;
 
     [SerializeField]
@@ -118,27 +120,24 @@ public class ChickenManager : MonoBehaviour
         {
             OnLevelStart();
         }
-
-        if (Input.GetKeyDown(KeyCode.A))
+        
+        if (Input.GetKey(KeyCode.A))
         {
             if (myRigidBody)
             {
                 Debug.Log("Left");
-                Vector3 forward = transform.TransformDirection(Vector3.up) * 10;
-                myRigidBody.AddForce(transform.right * -chickSpeed, ForceMode.Impulse);
-                // transform.rotation = Quaternion.LookRotation(transform.right * -chickSpeed);
-
+                myRigidBody.velocity = new Vector3(chickSpeed, myRigidBody.velocity.y, myRigidBody.velocity.z);
+                // TODO - add rotation only for mesh
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
             if (myRigidBody)
             {
                 Debug.Log("Right");
-                Vector3 forward = transform.TransformDirection(Vector3.up) * 10;
-                myRigidBody.AddForce(transform.right * chickSpeed, ForceMode.Impulse);
-                // transform.rotation = Quaternion.LookRotation(transform.right * chickSpeed);
+                myRigidBody.velocity = new Vector3(-chickSpeed, myRigidBody.velocity.y, myRigidBody.velocity.z);
+                // TODO - add rotation only for mesh
             }
         }
 
