@@ -127,6 +127,7 @@ public class ChickenManager : MonoBehaviour
                 Vector3 forward = transform.TransformDirection(Vector3.up) * 10;
                 myRigidBody.AddForce(transform.right * -chickSpeed, ForceMode.Impulse);
                 // transform.rotation = Quaternion.LookRotation(transform.right * -chickSpeed);
+
             }
         }
 
@@ -154,12 +155,11 @@ public class ChickenManager : MonoBehaviour
         }
 
         CheckIfTooStressed();
-        Debug.Log("Countdown: " + timeToSurviveInitial + "- stress: " + stress);
+        // Debug.Log("Countdown: " + timeToSurviveInitial + "- stress: " + stress);
     }
 
     void BecomeStressed(float stressAmount)
     {
-        Debug.Log(stress + " " + stressAmount);
         stress += stressAmount;
     }
 
@@ -247,8 +247,9 @@ public class ChickenManager : MonoBehaviour
             yield return new WaitForSeconds(1.0f);
             
             timeToSurviveLeft -= seconds;
-            Debug.Log("ASD");
             BecomeStressed(1.0f);
         }
     }
+
+    
 }
