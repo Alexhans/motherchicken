@@ -2,15 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Props : ProjectileEffect
+public class Props : MonoBehaviour
 {
     Rigidbody rigidbody;
 
-    public override void OnProjectileHit(ProjectileBehaviour projectileBehaviour)
+    private void OnTriggerEnter(Collider other)
     {
-        Vector3 direction = projectileBehaviour.transform.right * projectileBehaviour.forceOnHit;
+        Projectile projectile = other.gameObject.GetComponent<Projectile>();
 
-        rigidbody.AddForce(direction);
+        if (projectile != null)
+        {
+            Vector3 direction = projectile.transform.right * projectile.forceOnHit;
+
+            rigidbody.AddForce(direction);
+        }
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        Projectile projectile = collision.gameObject.GetComponent<Projectile>();
+
+        if (projectile != null)
+        {
+            Vector3 direction = projectile.transform.right * projectile.forceOnHit;
+
+            rigidbody.AddForce(direction);
+        }
     }
 
     private void Awake()

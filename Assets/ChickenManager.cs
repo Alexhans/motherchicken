@@ -35,16 +35,10 @@ public class ChickenManager : MonoBehaviour
     private float stressToHatch = 10.0f;
 
     [SerializeField]
-    private Transform gunPoint;
-
-    [SerializeField]
     private Transform eggPoint;
 
     [SerializeField]
     private Rigidbody myRigidBody;
-
-    [SerializeField]
-    private Vector3 aimVector;
 
     [SerializeField]
     private WeaponData weapon;
@@ -93,10 +87,6 @@ public class ChickenManager : MonoBehaviour
         {
             // Get the point along the ray that hits the calculated distance.
             Vector3 targetPoint = ray.GetPoint(hitdist);
-
-            Debug.DrawRay(gunPoint.transform.position, Vector3.Normalize(targetPoint - gunPoint.transform.position) * 5.0f);
-
-            aimVector = Vector3.Normalize(targetPoint - gunPoint.transform.position);
         }
         
     }
@@ -104,18 +94,6 @@ public class ChickenManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //aimVector = transform.right;
-        Debug.DrawRay(transform.position, aimVector * 1.0f, Color.green);
-        
-        
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Vector3 some = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        Debug.DrawRay(transform.position, ray.direction, Color.red);
-        if (Input.GetKeyDown("t"))
-        {
-            Shoot();
-        }
         if (Input.GetKeyDown(KeyCode.P))
         {
             OnLevelStart();
@@ -189,20 +167,6 @@ public class ChickenManager : MonoBehaviour
         stress = 0;
 
 
-    }
-    public void Shoot()
-    {
-        Vector3 forward = transform.TransformDirection(Vector3.forward) * rayDistanceDebugDraw;
-        Debug.DrawRay(transform.position, forward, Color.green);
-        Debug.Log("Bang!");
-        if(weapon.bullet) {
-            GameObject bullet = Instantiate<GameObject>(weapon.bullet.gameObject, gunPoint.position, Quaternion.FromToRotation(gunPoint.position.normalized, aimVector.normalized));
-
-            bullet.GetComponent<Rigidbody>().AddForce(aimVector * weapon.bulletForce, ForceMode.Impulse);
-
-            // Recoil
-            myRigidBody.GetComponent<Rigidbody>().AddForce(-(aimVector * weapon.bulletForce) * weapon.recoilFactor, ForceMode.Impulse);
-        }
     }
 
     void HandleTakeDamage(float damage)

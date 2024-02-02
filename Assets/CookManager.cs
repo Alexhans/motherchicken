@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CookManager : ProjectileEffect
+public class CookManager : MonoBehaviour
 {
     Rigidbody rb;
 
@@ -47,14 +47,6 @@ public class CookManager : ProjectileEffect
     }
 
     void OnCollisionEnter(Collision collision)
-    {
-        // if (collision.gameObject.tag.Equals(followObjectDefaultTag))
-        // {
-        //     Destroy(gameObject);
-        // }
-    }
-
-    public override void OnProjectileHit(ProjectileBehaviour projectileBehaviour)
     {
         Debug.Log("<color=green>Alex, please implement the effect here.</color>");
     }
