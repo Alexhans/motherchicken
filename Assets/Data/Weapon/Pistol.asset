@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Pistol
   m_EditorClassIdentifier: 
   bullet: {fileID: 8447057426712000648, guid: e235781ee333aaf4e861ae869220a65f, type: 3}
-  bulletForce: 1
+  bulletAdditionalForce: 0
   bulletSpeed: 1
   weapon: {fileID: 0}
   weaponAmmo: 13
-  weaponRecoilFactor: 1
+  weaponRecoilFactor: 2
   weaponCoolDown: 1
+  stress: 0.1

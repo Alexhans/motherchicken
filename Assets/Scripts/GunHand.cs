@@ -57,10 +57,10 @@ public class GunHand : MonoBehaviour
             );
 
             bullet.transform.forward = transform.forward;
+            bullet.GetComponent<Projectile>().forceOnHit += weapon.bulletAdditionalForce;
+            bullet.GetComponent<Rigidbody>().AddForce(transform.right * weapon.bulletSpeed, ForceMode.VelocityChange);
 
-            bullet.GetComponent<Rigidbody>().AddForce(transform.right * weapon.bulletSpeed, ForceMode.Impulse);
-
-            myBodyRigidBody.GetComponent<Rigidbody>().AddForce(-(transform.right * weapon.bulletForce) * weapon.weaponRecoilFactor, ForceMode.Impulse);
+            myBodyRigidBody.GetComponent<Rigidbody>().AddForce(-transform.right * weapon.weaponRecoilFactor, ForceMode.Impulse);
 
             bulletAmount--;
             weaponCooldown = weapon.weaponCoolDown;

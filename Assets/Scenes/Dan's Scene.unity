@@ -2102,6 +2102,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChickenRot
       objectReference: {fileID: 0}
+    - target: {fileID: 3934924500263457633, guid: 08920226111032247a60b04dfb088251, type: 3}
+      propertyPath: defaultWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 34c32d65d76f7464d84ecc2d5b91c524, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

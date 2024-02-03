@@ -41,9 +41,6 @@ public class ChickenManager : MonoBehaviour
     private Rigidbody myRigidBody;
 
     [SerializeField]
-    private WeaponData weapon;
-
-    [SerializeField]
     float eggForce = 4.0f;
 
     [SerializeField]

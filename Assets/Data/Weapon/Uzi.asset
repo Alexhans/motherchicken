@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95351b32617048f4aaa06a268bccd975, type: 3}
   m_Name: Uzi
   m_EditorClassIdentifier: 
-  bullet: {fileID: 0}
-  bulletForce: 0.1
+  bullet: {fileID: 8447057426712000648, guid: e235781ee333aaf4e861ae869220a65f, type: 3}
+  bulletAdditionalForce: 3
   bulletSpeed: 1
   weapon: {fileID: 0}
   weaponAmmo: 30
-  weaponRecoilFactor: 1
-  weaponCoolDown: 0
+  weaponRecoilFactor: 1.5
+  weaponCoolDown: 0.1
+  stress: 0.1
