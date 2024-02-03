@@ -60,8 +60,8 @@ MonoBehaviour:
   eggForce: 5
   rayDistanceDebugDraw: 10
   chickSpeed: 4
-  timeToSurviveInitial: 10
-  timeToSurviveLeft: 9999
+  timeToSurviveInitial: 600
+  timeToSurviveLeft: 600
 --- !u!54 &2780047575323934370
 Rigidbody:
   m_ObjectHideFlags: 0

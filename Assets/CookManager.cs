@@ -16,6 +16,9 @@ public class CookManager : MonoBehaviour
     GameObject followObject;
 
     [SerializeField]
+    int hitPoints = 4;
+
+    [SerializeField]
     private float speed = 2f;
 
     void Start()
@@ -33,21 +36,33 @@ public class CookManager : MonoBehaviour
 
     void Update()
     {
-        Vector3 followObjectPosition = followObject.transform.position;
-        if (followObjectPosition.x > transform.position.x)
+        if (hitPoints > 0)
         {
-            rb.velocity = new Vector3(speed, rb.velocity.y, rb.velocity.z);
-            rb.rotation = Quaternion.Euler(0, 90, 0);
+            Vector3 followObjectPosition = followObject.transform.position;
+            if (followObjectPosition.x > transform.position.x)
+            {
+                rb.velocity = new Vector3(speed, rb.velocity.y, rb.velocity.z);
+                rb.rotation = Quaternion.Euler(0, 90, 0);
+            }
+            else if (followObjectPosition.x < transform.position.x)
+            {
+                rb.velocity = new Vector3(-speed, rb.velocity.y, rb.velocity.z);
+                rb.rotation = Quaternion.Euler(0, 270, 0);
+            }
         }
-        else if (followObjectPosition.x < transform.position.x)
+        else
         {
-            rb.velocity = new Vector3(-speed, rb.velocity.y, rb.velocity.z);
-            rb.rotation = Quaternion.Euler(0, 270, 0);
+            Destroy(this);
         }
     }
 
-    void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("<color=green>Alex, please implement the effect here.</color>");
+        Projectile projectile = other.gameObject.GetComponent<Projectile>();
+
+        if (projectile != null)
+        {
+            hitPoints -= projectile.Damage;
+        }
     }
 }

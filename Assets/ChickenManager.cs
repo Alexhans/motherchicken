@@ -104,7 +104,7 @@ public class ChickenManager : MonoBehaviour
             if (myRigidBody)
             {
                 Debug.Log("Left");
-                myRigidBody.velocity = new Vector3(chickSpeed, myRigidBody.velocity.y, myRigidBody.velocity.z);
+                myRigidBody.velocity = new Vector3(-chickSpeed, myRigidBody.velocity.y, myRigidBody.velocity.z);
                 // TODO - add rotation only for mesh
             }
         }
@@ -114,7 +114,7 @@ public class ChickenManager : MonoBehaviour
             if (myRigidBody)
             {
                 Debug.Log("Right");
-                myRigidBody.velocity = new Vector3(-chickSpeed, myRigidBody.velocity.y, myRigidBody.velocity.z);
+                myRigidBody.velocity = new Vector3(chickSpeed, myRigidBody.velocity.y, myRigidBody.velocity.z);
                 // TODO - add rotation only for mesh
             }
         }

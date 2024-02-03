@@ -48,7 +48,7 @@ public class GunHand : MonoBehaviour
             else
                 weaponCooldown = 0;
 
-        if ((weaponCooldown == 0) && (bulletAmount != 0) && Input.GetKeyDown(KeyCode.Mouse0))
+        if ((weaponCooldown == 0) && (bulletAmount != 0) && Input.GetKey(KeyCode.Mouse0))
         {
             GameObject bullet = Instantiate<GameObject>(
                 weapon.bullet,

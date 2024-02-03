@@ -18,18 +18,6 @@ public class Props : MonoBehaviour
         }
     }
 
-    public void OnCollisionEnter(Collision collision)
-    {
-        Projectile projectile = collision.gameObject.GetComponent<Projectile>();
-
-        if (projectile != null)
-        {
-            Vector3 direction = projectile.transform.right * projectile.forceOnHit;
-
-            rigidbody.AddForce(direction);
-        }
-    }
-
     private void Awake()
     {
         rigidbody = gameObject.GetComponent<Rigidbody>();

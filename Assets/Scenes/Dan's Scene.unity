@@ -971,7 +971,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 556853993}
-  m_LocalRotation: {x: 0.039500803, y: -0.006801299, z: 0.00026887283, w: 0.99919635}
+  m_LocalRotation: {x: 0.039501294, y: -0.004635369, z: 0.00018324805, w: 0.99920875}
   m_LocalPosition: {x: 3.658, y: 2.293, z: -9.793}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2101,18 +2101,6 @@ PrefabInstance:
     - target: {fileID: 2167348857976765522, guid: 08920226111032247a60b04dfb088251, type: 3}
       propertyPath: m_Name
       value: ChickenRot
-      objectReference: {fileID: 0}
-    - target: {fileID: 6392713280703600293, guid: 08920226111032247a60b04dfb088251, type: 3}
-      propertyPath: myRigidBody
-      value: 
-      objectReference: {fileID: 2019730372}
-    - target: {fileID: 6392713280703600293, guid: 08920226111032247a60b04dfb088251, type: 3}
-      propertyPath: timeToSurviveLeft
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 6392713280703600293, guid: 08920226111032247a60b04dfb088251, type: 3}
-      propertyPath: timeToSurviveInitial
-      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4943,11 +4931,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0014332242, y: 0.0010743777, z: 0.0010107359}
   m_Center: {x: 0.000073269795, y: 0.00004029832, z: 0.00048821722}
---- !u!54 &2019730372 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 2780047575323934370, guid: 08920226111032247a60b04dfb088251, type: 3}
-  m_PrefabInstance: {fileID: 698130962}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2019730375 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1168978497541067672, guid: 08920226111032247a60b04dfb088251, type: 3}
@@ -8106,19 +8089,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 623622329210586992, guid: dc5f4f66fe0f94940a6b84d347edce14, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99919635
+      value: 0.99920875
       objectReference: {fileID: 0}
     - target: {fileID: 623622329210586992, guid: dc5f4f66fe0f94940a6b84d347edce14, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.039500803
+      value: 0.039501294
       objectReference: {fileID: 0}
     - target: {fileID: 623622329210586992, guid: dc5f4f66fe0f94940a6b84d347edce14, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.006801299
+      value: -0.004635369
       objectReference: {fileID: 0}
     - target: {fileID: 623622329210586992, guid: dc5f4f66fe0f94940a6b84d347edce14, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00026887283
+      value: 0.00018324805
       objectReference: {fileID: 0}
     - target: {fileID: 623622329210586992, guid: dc5f4f66fe0f94940a6b84d347edce14, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
