@@ -44,9 +44,6 @@ public class ChickenManager : MonoBehaviour
     float eggForce = 4.0f;
 
     [SerializeField]
-    float rayDistanceDebugDraw = 10.0f;
-
-    [SerializeField]
     float chickSpeed = 2.0f;
 
     [SerializeField]
@@ -54,6 +51,22 @@ public class ChickenManager : MonoBehaviour
 
     [SerializeField]
     float timeToSurviveLeft = 99.0f;
+
+    float speed = 1.0f;
+
+    private float stunned;
+
+    public float StunTime
+    {
+        get { return stunned; }
+        set { stunned += value; }
+    }
+
+    private void Awake()
+    {
+        stunned = 0f;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,7 +75,6 @@ public class ChickenManager : MonoBehaviour
         HandleLevelStart();
     }
 
-    float speed = 1.0f;
     void FixedUpdate()
     {
         // Generate a plane that intersects the transform's position with an upwards normal.
@@ -91,48 +103,60 @@ public class ChickenManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (stunned <= 0)
         {
-            OnLevelStart();
-        }
-        
-        if (Input.GetKey(KeyCode.A))
-        {
-            if (myRigidBody)
+            if (Input.GetKeyDown(KeyCode.P))
             {
-                Debug.Log("Left");
-                myRigidBody.velocity = new Vector3(-chickSpeed, myRigidBody.velocity.y, myRigidBody.velocity.z);
-                // TODO - add rotation only for mesh
+                OnLevelStart();
+            }
+
+            if (Input.GetKey(KeyCode.A))
+            {
+                if (myRigidBody)
+                {
+                    Debug.Log("Left");
+                    myRigidBody.velocity = new Vector3(-chickSpeed, myRigidBody.velocity.y, myRigidBody.velocity.z);
+                    // TODO - add rotation only for mesh
+                }
+            }
+
+            if (Input.GetKey(KeyCode.D))
+            {
+                if (myRigidBody)
+                {
+                    Debug.Log("Right");
+                    myRigidBody.velocity = new Vector3(chickSpeed, myRigidBody.velocity.y, myRigidBody.velocity.z);
+                    // TODO - add rotation only for mesh
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.H))
+            {
+                HandleHatchEgg();
+            }
+
+
+
+
+            if (timeToSurviveLeft <= 0)
+            {
+                OnSurvive();
+            }
+
+            CheckIfTooStressed();
+            // Debug.Log("Countdown: " + timeToSurviveInitial + "- stress: " + stress);
+        }
+        else
+        {
+            stunned -= Time.deltaTime;
+            if (stunned < 0)
+            {
+                stunned = 0;
             }
         }
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            if (myRigidBody)
-            {
-                Debug.Log("Right");
-                myRigidBody.velocity = new Vector3(chickSpeed, myRigidBody.velocity.y, myRigidBody.velocity.z);
-                // TODO - add rotation only for mesh
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.H)) {
-            HandleHatchEgg();
-        }
-
-
-        
-
-        if (timeToSurviveLeft <= 0)
-        {
-            OnSurvive();
-        }
-
-        CheckIfTooStressed();
-        // Debug.Log("Countdown: " + timeToSurviveInitial + "- stress: " + stress);
     }
 
-    void BecomeStressed(float stressAmount)
+    public void BecomeStressed(float stressAmount)
     {
         stress += stressAmount;
     }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Uzi
   m_EditorClassIdentifier: 
   bullet: {fileID: 8447057426712000648, guid: e235781ee333aaf4e861ae869220a65f, type: 3}
-  bulletAdditionalForce: 3
+  bulletAdditionalForce: 100
   bulletSpeed: 1
   weapon: {fileID: 0}
   weaponAmmo: 30

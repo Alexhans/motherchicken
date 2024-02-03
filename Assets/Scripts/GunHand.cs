@@ -12,6 +12,7 @@ public class GunHand : MonoBehaviour
     private Camera mainCamera;
     private Vector3 mousePosition;
     private Rigidbody myBodyRigidBody;
+    private ChickenManager chickenManager;
 
     public WeaponData Weapon
     {
@@ -22,11 +23,30 @@ public class GunHand : MonoBehaviour
         }
     }
 
+    private void Shoot()
+    {
+        GameObject bullet = Instantiate<GameObject>(
+            weapon.bullet,
+            muzzle.position,
+            transform.rotation
+        );
+
+        bullet.transform.forward = transform.forward;
+        bullet.GetComponent<Projectile>().forceOnHit += weapon.bulletAdditionalForce;
+        bullet.GetComponent<Rigidbody>().AddForce(transform.right * weapon.bulletSpeed, ForceMode.VelocityChange);
+
+        myBodyRigidBody.GetComponent<Rigidbody>().AddForce(-transform.right * weapon.weaponRecoilFactor, ForceMode.Impulse);
+        chickenManager.BecomeStressed(weapon.stress);
+
+        bulletAmount--;
+        weaponCooldown = weapon.weaponCoolDown;
+    }
 
     private void Awake()
     {
         mainCamera = Camera.main;
         myBodyRigidBody = transform.parent.gameObject.GetComponent<Rigidbody>();
+        chickenManager = transform.parent.gameObject.GetComponent<ChickenManager>();
         Weapon = defaultWeapon;
     }
 
@@ -48,22 +68,18 @@ public class GunHand : MonoBehaviour
             else
                 weaponCooldown = 0;
 
-        if ((weaponCooldown == 0) && (bulletAmount != 0) && Input.GetKey(KeyCode.Mouse0))
+        if (chickenManager.StunTime <= 0)
         {
-            GameObject bullet = Instantiate<GameObject>(
-                weapon.bullet,
-                muzzle.position, 
-                transform.rotation
-            );
-
-            bullet.transform.forward = transform.forward;
-            bullet.GetComponent<Projectile>().forceOnHit += weapon.bulletAdditionalForce;
-            bullet.GetComponent<Rigidbody>().AddForce(transform.right * weapon.bulletSpeed, ForceMode.VelocityChange);
-
-            myBodyRigidBody.GetComponent<Rigidbody>().AddForce(-transform.right * weapon.weaponRecoilFactor, ForceMode.Impulse);
-
-            bulletAmount--;
-            weaponCooldown = weapon.weaponCoolDown;
+            if (Input.GetKeyUp(KeyCode.Mouse0))
+            {
+                weaponCooldown = weapon.stunTime;
+                chickenManager.StunTime = weapon.stunTime;
+            }
+            else
+            {
+                if ((weaponCooldown == 0) && (bulletAmount != 0) && Input.GetKey(KeyCode.Mouse0))
+                    Shoot();
+            }
         }
     }
 }

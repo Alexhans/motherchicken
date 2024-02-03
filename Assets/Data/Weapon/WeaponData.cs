@@ -13,5 +13,6 @@ public class WeaponData : ScriptableObject
     public int weaponAmmo = 30;
     public float weaponRecoilFactor = 1.0f;
     public float weaponCoolDown = 0.0f;
+    public float stunTime = 0;
     public float stress = 0.1f;
 }

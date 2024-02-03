@@ -90,7 +90,7 @@ Transform:
   - {fileID: 1420725176279879749}
   - {fileID: 398316945878691687}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6392713280703600293
 MonoBehaviour:
@@ -111,7 +111,6 @@ MonoBehaviour:
   eggPoint: {fileID: 398316945878691687}
   myRigidBody: {fileID: 2780047575323934370}
   eggForce: 5
-  rayDistanceDebugDraw: 10
   chickSpeed: 4
   timeToSurviveInitial: 600
   timeToSurviveLeft: 600
