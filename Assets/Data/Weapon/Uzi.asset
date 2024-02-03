@@ -19,4 +19,5 @@ MonoBehaviour:
   weaponAmmo: 30
   weaponRecoilFactor: 1.5
   weaponCoolDown: 0.1
-  stress: 0.1
+  stunTime: 2
+  stress: 3

@@ -17,6 +17,7 @@ MonoBehaviour:
   bulletSpeed: 1
   weapon: {fileID: 0}
   weaponAmmo: 13
-  weaponRecoilFactor: 2
+  weaponRecoilFactor: 3
   weaponCoolDown: 1
-  stress: 0.1
+  stunTime: 0
+  stress: 2

@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Bazooka
   m_EditorClassIdentifier: 
   bullet: {fileID: 6074661210258623916, guid: b40b9e5257714a04b84a373c6db4fd1b, type: 3}
-  bulletForce: 1
+  bulletAdditionalForce: 0
   bulletSpeed: 1
   weapon: {fileID: 0}
   weaponAmmo: 5
   weaponRecoilFactor: 6
   weaponCoolDown: 2
-  stress: 0.1
+  stunTime: 0
+  stress: 20
