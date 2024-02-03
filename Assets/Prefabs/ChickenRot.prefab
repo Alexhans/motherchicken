@@ -54,10 +54,8 @@ MonoBehaviour:
   health: 100
   stress: 1
   stressToHatch: 100
-  gunPoint: {fileID: 0}
   eggPoint: {fileID: 398316945878691687}
   myRigidBody: {fileID: 2780047575323934370}
-  aimVector: {x: 0, y: 0, z: 0}
   weapon: {fileID: 11400000, guid: dcea381872914804082d00e50530860d, type: 2}
   eggForce: 5
   rayDistanceDebugDraw: 10
@@ -318,6 +316,8 @@ MonoBehaviour:
     m_Bits: 1024
   muzzle: {fileID: 307348307966755866}
   bulletAmount: 0
+  weaponCooldown: 0
+  defaultWeapon: {fileID: 11400000, guid: dcea381872914804082d00e50530860d, type: 2}
 --- !u!1 &8855508242293613298
 GameObject:
   m_ObjectHideFlags: 0
