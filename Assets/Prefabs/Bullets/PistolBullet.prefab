@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 1
-  forceOnHit: 5
+  forceOnHit: 250
 --- !u!114 &8611108876975763258
 MonoBehaviour:
   m_ObjectHideFlags: 0
