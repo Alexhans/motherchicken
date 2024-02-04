@@ -53,7 +53,7 @@ MonoBehaviour:
   muzzle: {fileID: 307348307966755866}
   bulletAmount: 0
   weaponCooldown: 0
-  defaultWeapon: {fileID: 11400000, guid: 44a27db20de19e442abc6047495c40f8, type: 2}
+  defaultWeapon: {fileID: 11400000, guid: 34c32d65d76f7464d84ecc2d5b91c524, type: 2}
 --- !u!1 &2167348857976765522
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,7 +90,7 @@ Transform:
   - {fileID: 1420725176279879749}
   - {fileID: 398316945878691687}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6392713280703600293
 MonoBehaviour:
