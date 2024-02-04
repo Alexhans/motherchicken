@@ -27,6 +27,9 @@ public class ChickenManager : MonoBehaviour
     private GameObject body;
     [SerializeField]
     private GameObject shoulders;
+    [SerializeField]
+    private float distToGround;
+
 
     [SerializeField]
     GameObject egg;
@@ -75,7 +78,9 @@ public class ChickenManager : MonoBehaviour
     void Start()
     {
         Debug.Log("Hello: " + gameObject.name);
-        
+
+        distToGround = gameObject.GetComponent<BoxCollider>().bounds.extents.y + 0.1f;
+
         HandleLevelStart();
     }
 
@@ -114,25 +119,30 @@ public class ChickenManager : MonoBehaviour
                 OnLevelStart();
             }
 
-            if (Input.GetKey(KeyCode.A))
+            // Character should walk on floor, not in air.
+            if (Physics.Raycast(transform.position, -Vector3.up, distToGround, 7))
             {
-                if (myRigidBody)
+                if (Input.GetKey(KeyCode.A))
                 {
-                    Debug.Log("Left");
-                    myRigidBody.velocity = new Vector3(-chickSpeed, myRigidBody.velocity.y, myRigidBody.velocity.z);
-                    // TODO - add rotation only for mesh
+                    if (myRigidBody)
+                    {
+                        Debug.Log("Left");
+                        myRigidBody.velocity = new Vector3(-chickSpeed, myRigidBody.velocity.y, myRigidBody.velocity.z);
+                        // TODO - add rotation only for mesh
+                    }
+                }
+
+                if (Input.GetKey(KeyCode.D))
+                {
+                    if (myRigidBody)
+                    {
+                        Debug.Log("Right");
+                        myRigidBody.velocity = new Vector3(chickSpeed, myRigidBody.velocity.y, myRigidBody.velocity.z);
+                        // TODO - add rotation only for mesh
+                    }
                 }
             }
 
-            if (Input.GetKey(KeyCode.D))
-            {
-                if (myRigidBody)
-                {
-                    Debug.Log("Right");
-                    myRigidBody.velocity = new Vector3(chickSpeed, myRigidBody.velocity.y, myRigidBody.velocity.z);
-                    // TODO - add rotation only for mesh
-                }
-            }
 
             if (Input.GetKeyDown(KeyCode.H))
             {
