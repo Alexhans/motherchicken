@@ -57,8 +57,11 @@ public class GunHand : MonoBehaviour
         if (Physics.Raycast(mousePositionRay, out RaycastHit raycasthit, layer))
         {
             mousePosition = new Vector3(raycasthit.point.x, raycasthit.point.y, 0);
-            Vector3 rotation = (mousePosition - transform.position);
+            Vector3 rotation = (mousePosition - transform.position);          
             float angle = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+
+            chickenManager.RotateBody(angle);
+
             transform.rotation = Quaternion.Euler(0, 0, angle);
         }
 

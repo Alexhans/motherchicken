@@ -22,6 +22,12 @@ public class ChickenManager : MonoBehaviour
     public static event HatchEggAction OnHatchEgg;
     // attrs
     // attrs
+
+    [SerializeField]
+    private GameObject body;
+    [SerializeField]
+    private GameObject shoulders;
+
     [SerializeField]
     GameObject egg;
 
@@ -51,8 +57,6 @@ public class ChickenManager : MonoBehaviour
 
     [SerializeField]
     float timeToSurviveLeft = 99.0f;
-
-    float speed = 1.0f;
 
     private float stunned;
 
@@ -235,5 +239,14 @@ public class ChickenManager : MonoBehaviour
         }
     }
 
-    
+    public void RotateBody(float angle)
+    {
+        float absoluteAngle = MathF.Abs(angle);
+
+        if (body != null)
+            body.transform.rotation = Quaternion.Euler(0f, absoluteAngle, 0f);
+
+        if (shoulders != null)
+            shoulders.transform.rotation = Quaternion.Euler(0f, absoluteAngle, 0f);
+    }
 }
